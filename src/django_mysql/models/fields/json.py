@@ -92,15 +92,15 @@ class JSONField(Field):
     def _check_json_encoder_decoder(self):
         errors = []
 
-        if hasattr(self.json_encoder, 'allow_nan') and self.json_encoder.allow_nan:
-            errors.append(
-                checks.Error(
-                    "Custom JSON encoder should have allow_nan=False as MySQL "
-                    "does not support NaN/Infinity in JSON.",
-                    obj=self,
-                    id="django_mysql.E018",
-                )
-            )
+#        if hasattr(self.json_encoder, 'allow_nan') and self.json_encoder.allow_nan:
+#            errors.append(
+#                checks.Error(
+#                    "Custom JSON encoder should have allow_nan=False as MySQL "
+#                    "does not support NaN/Infinity in JSON.",
+#                    obj=self,
+#                    id="django_mysql.E018",
+#                )
+#            )
 
         if self.json_decoder.strict:
             errors.append(
