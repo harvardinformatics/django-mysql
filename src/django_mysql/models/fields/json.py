@@ -92,7 +92,7 @@ class JSONField(Field):
     def _check_json_encoder_decoder(self):
         errors = []
 
-        if self.json_encoder.allow_nan:
+        if hasattr('allow_nan', self.json_encoder) and self.json_encoder.allow_nan:
             errors.append(
                 checks.Error(
                     "Custom JSON encoder should have allow_nan=False as MySQL "
